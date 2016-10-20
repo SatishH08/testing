@@ -1,1 +1,1 @@
-# opentext-help
+# help
