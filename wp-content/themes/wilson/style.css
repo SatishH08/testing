@@ -239,7 +239,7 @@ a.more-link,
 	float: right;
     position: relative;
     width: 68%;
-	z-index: 2;
+	z-index: 2;  
 }
 .content .posts{min-height: 1084px;}
 
@@ -252,10 +252,9 @@ a.more-link,
 .blog-header,
 .blog-menu,
 .sidebar .widgets {
-	padding-left: 15%;
-	padding-right: 15%;
-	    margin-top: 14%;
-			    margin-bottom: -5%;
+	padding-left: 10%;
+	padding-right: 10%;
+
 }
 
 .blog-header { text-align: center;
