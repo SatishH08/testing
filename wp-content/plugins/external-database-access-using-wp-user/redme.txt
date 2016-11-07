@@ -1,0 +1,96 @@
+=== ExtDB ===
+Contributors: sandy.salunke
+Donate link: 
+Tags: 
+Requires at least: 3.0.1
+Tested up to: 4.3.1
+Stable tag: 4.3.1
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+ExtDB: external-database-access-using-wp-user, Access external database table with WP user credentials and with specific access permissions.
+
+== Description ==
+
+Details: This plugin will Create/Edit/Delete the users in external database when WP users will be Created/Edited/Deleted in WP. The user will be created in external database with specified access permissions i.e.(SELECT, INSERT, UPDATE, DELETE, FILE etc.). If your WP site already has users then while editing user profile, plugin will create user to external DB. After installation of plugin from WP plugin section you have to activate the plugin by clicking to the link "Activate". After activation of plugin the sub menu "External DB setting" in Settings menu will be created. Here you can configure the plugin by providing the required details. you can also find the main menu created with name "External DB Data". Here you can Read/Add/Update/Delete data of specified table of external database.
+
+This plugin is basically used for two purposes.
+1) To create user in external database with WP user credentials and with specified access permissions.
+2) Read/Add/Update/Delete data of specified table of external database.
+
+== Installation ==
+
+Requirements:
+1) Database details i.e. (dbhost, dbPort, dbusername, dbpass dbname)
+2) Database type i.e (MySQL, MSSQL, PgSQL etc).
+3) Table name: data to be accessed from.
+4) The selected table must have primary key with column name "id" (no prefix or suffix ti "id" is acceptable and without this plugin will not work).
+5) Access permissions to be given to the users.
+
+Steps to install plugin:
+Step 1:
+extCreateDbUser(): Call this function in wp-admin/user-new.php file on line 108
+if ( current_user_can( 'list_users' ) ){
+  //Create user in external database with Privilages/Access/Grants
+  extCreateDbUser($user_id);	//Defined in ExtDB plugin page
+}
+
+Step 2:
+extUpdateDBUser(): Call this function in wp-admin/user-edit.php file on line 182
+if($_POST['pass2'])
+{
+  //Update user in external database with Privilages/Access/Grants
+  extDbUpdateUser($_POST['user_id']);	//Defined in ExtDB plugin page
+}
+
+Step 3:
+extDeleteDbUser(): Call this function in wp-admin/users.php file on line 178 (in case 'delete')
+switch ( $_REQUEST['delete_option'] ) {
+  case 'delete':
+     extDbDeleteUser($id);	//Defined in ExtDB plugin page
+     wp_delete_user( $id );
+  break;
+
+Step 4: if you wish to show data on any page just call this function on that page.
+ext_db_data_display_options(): Call this function in page where you want to show Records/Data of external database table.
+
+OR ELSE
+
+Add the "ExtDB" widget to your page.
+
+== Frequently Asked Questions ==
+
+= What if the purpose of ExtDB plugin? =
+
+ExtDB is used to access external database table with WP user credentials and with specific access permissions.
+
+== What are the dependancies of ExtDB? ==
+
+ExtDB is portable, database engine independant, platform independant, Worpress version independant. There is only one dependancy that the selected database table must have primary key with column name "id" (no prefix or suffix ti "id" is acceptable and without this, plugin will not work).
+
+== Screenshots ==
+
+1. screenshot-1.png: This is the first screen shot
+
+2. screenshot-1.png: This is the second screen shot
+
+== Changelog ==
+
+== 1.1 ==
+
+Changed readme.txt as per ne wordpress specifications.
+
+== Upgrade Notice ==
+
+= 1.1 =
+
+Apgraded readme.txt as per ne wordpress specifications.
+
+== Arbitrary section ==
+
+== A brief Markdown Example ==
+
+== Contact Details ==
+Author Name: Salunke Sandip S.
+Email: sandy.salunke89@gmail.com
+Mobile: +918796907719
