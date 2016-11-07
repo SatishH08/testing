@@ -26,8 +26,8 @@ define('DB_NAME', 'tgt_dam_opentext');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'Target@1234');
-//define('DB_PASSWORD', '');
+//define('DB_PASSWORD', 'Target@1234');
+define('DB_PASSWORD', '');
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
 
